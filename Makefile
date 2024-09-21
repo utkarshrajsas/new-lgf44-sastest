@@ -1,5 +1,5 @@
-KVERSION := $(shell bitbake -e virtual/kernel | grep ^PV= | cut -d'=' -f2 | tr -d '"')
-KDIR := $(shell bitbake -e virtual/kernel | grep ^STAGING_KERNEL_DIR= | cut -d'=' -f2 | tr -d '"')
+KVERSION := 4.19.198-cip45+gitAUTOINC+01e5ce991e
+KDIR := /home/utkarsh/beacon/ReneSOM-yocto-bsp/rzg2-m-rocko/tmp/work-shared/beacon-rzg2m/kernel-source
 
 default:
 	$(MAKE) -C $(KDIR) M=$$PWD
