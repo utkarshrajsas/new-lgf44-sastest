@@ -1,5 +1,5 @@
-KVERSION := `uname -r`
-KDIR := /lib/modules/${KVERSION}/build
+KVERSION := $(shell bitbake -e virtual/kernel | grep ^PV= | cut -d'=' -f2 | tr -d '"')
+KDIR := $(shell bitbake -e virtual/kernel | grep ^STAGING_KERNEL_DIR= | cut -d'=' -f2 | tr -d '"')
 
 default:
 	$(MAKE) -C $(KDIR) M=$$PWD
